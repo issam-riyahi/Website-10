@@ -825,3 +825,33 @@ SUBSCRIBER
     top: 50%;
     transform: translateY(-50%);
 }
+/* -----------------------
+---------CONTACT-------
+----------------------- */
+.contact {
+    width: 100%;
+    position: relative;
+    background: url('image/contact_bg.jpg') no-repeat center center/cover;
+    padding: 3rem 0;
+}
+.contact .contact-content {
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+.contact .contact-content .contact-pr {
+    max-width: 800px;
+}
+.contact .contact-content  h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    line-height: 3.5rem;
+}
+.contact .contact-content a {
+    display: inline-block;
+    padding: 1em 2em;
+    background-color: #051441;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
