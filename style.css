@@ -20,6 +20,7 @@ body {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
+    /* overflow: hidden; */
 }
 header{
     
@@ -38,9 +39,15 @@ header .header-content {
 .header-content .navigation  {
     display: flex;
     align-items: center;
+    
+    
 }
 .header-content .navigation .nav ul {
     display: flex;
+   
+}
+.header-content  .logo {
+    padding-left: 15px;
 }
 .header-content .navigation .nav ul li {
     margin: 0 2.5em 0 0;
@@ -82,7 +89,8 @@ header .header-content {
 .header-content .navigation .call-us {
     display: flex;
     align-items: center;
-    padding: .8em 1.5em;
+    padding: 0 0 0 1em;
+    border-left: #646c84 2px solid;
 }
 .header-content .navigation .call-us .icon-tel {
     margin-right: 1.4em;
@@ -144,7 +152,7 @@ header .header-content {
     color: #fff;
     font-size: 4rem;
     margin: 2.5rem 4rem 1.2rem 4rem;
-    animation:fedoutleft .5s linear 1s ;
+    animation:fedoutleft  linear .4s  ;
     
     
 }
@@ -188,7 +196,7 @@ header .header-content {
     line-height: 1.8em;
     width: 65%;
     margin: 0 auto 1.8rem auto;
-    animation:fedoutright .4s linear 1s ;
+    animation:fedoutright  linear  .4s ;
 }
 @keyframes fedoutright {
     0% {
@@ -222,6 +230,7 @@ header .header-content {
 }
 .services .container {
     /* width: 60%; */
+    overflow: visible;
 }
 .services .services-content{
     width: 100%;
@@ -230,7 +239,7 @@ header .header-content {
 .services .some-services {
     display: flex;
     justify-content: space-between;
-    
+    flex-wrap: wrap;
     position: relative;
     margin-top: -100px;
 }
@@ -242,6 +251,22 @@ header .header-content {
     transition: all .5s;
     box-shadow: 0px 2px 6px 0px rgba(0, 11, 40, 0.1);
     margin-bottom: 4rem;
+    height: 100%;
+    animation: up linear .5s ;
+}
+@keyframes up {
+    0%{
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    50%{
+        opacity: 0.5;
+        transform: translateY(25%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0%);
+    }
 }
 .services .some-services .service:hover{
     box-shadow: 0px 20px 30px 0px rgba(0, 11, 40, 0.1);
@@ -359,15 +384,21 @@ header .header-content {
     
 }
 .services .services-detail .more-detail-box ul li{
-    line-height: 2.5em;
+    line-height: 1.5em;
     padding-left:  1.5em;
     position: relative;
+    margin-bottom: 1.2rem;
+   
 }
 .services .services-detail .more-detail-box ul li i{
-   
+    display: inline-block;
+   position: absolute;
     margin-right: 8px;
     color: #fad027;
-    
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    box-sizing:border-box;
 }
 /* --------------------
 START ABOUT-US
@@ -645,6 +676,7 @@ SUBSCRIBER
     width: 65%;
     text-align: center;
 }
+
 .latest-work .latest-work-content .latest-work-title h1 {
     font-size: 2.4rem;
     color: #051441;
@@ -652,16 +684,21 @@ SUBSCRIBER
     line-height: 3.5rem;
 }
 .latest-work .latest-work-content .latest-work-slide {
-    display: flex;
-    justify-content: space-between;
+   overflow: hidden;
+   position: relative;
 }
+.latest-work .latest-work-content .latest-work-slide .row-slide {
+    display: flex;
+    width: 3000px;
+} 
 .latest-work .latest-work-content .latest-work-slide .latest-work-box {
     background-color: #fff;
     box-shadow: 0 5px 20px 0px rgba(0, 11, 40, 0.1);
     padding: .8em;
-    margin:  0 15px;
+    margin:  0 15px 30px;
     position: relative;
     transition: all .3s;
+    max-width: 370px;
 }
 .latest-work .latest-work-content .latest-work-slide .latest-work-box:hover{
     box-shadow: 0 10px 30px 0px rgba(0, 11, 40, 0.2);
@@ -840,7 +877,8 @@ SUBSCRIBER
     padding: 0 15px;
 }
 .contact .contact-content .contact-pr {
-    max-width: 800px;
+    max-width: 60%;
+    margin-right: 2rem;
 }
 .contact .contact-content  h1 {
     font-size: 2.5rem;
@@ -854,4 +892,307 @@ SUBSCRIBER
     color: #fff;
     font-weight: 700;
     font-size: 1.1rem;
+    transition: .3s;
+}
+.contact .contact-content a:hover{
+    background-color: #fff;
+    color: #051441;
+}
+/* ----------------------
+----------footer-------
+------------------------- */
+footer {
+    position: relative;
+    width: 100%;
+    padding: 4rem 0;
+    background-color: #1b2131;
+}
+footer .footer-content {
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+footer .footer-content h3 {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 2.5rem;
+}
+.footer-content .copyright-and-logo {
+    width: 40%;
+    max-width: 40%;
+    padding-right: 6rem;
+}
+.footer-content .copyright-and-logo .company-info p {
+    color: #cdd1dd;
+    font-size: 1.125rem;
+    margin: 2rem 0 2rem;
+    
+    line-height: 1.8rem;
+}
+.footer-content .copyright-and-logo .copyright p {
+    font-size: 1rem;
+    color: #646c84;
+    margin-bottom: .8em;
+}
+.footer-content .copyright-and-logo .copyright a {
+    color: #cdd1dd;
+    
+}
+.footer-content .copyright-and-logo .copyright a:hover{
+    color: #fad027;
+}
+.footer-content .company-link {
+    width: 33%;
+    max-width: 33%;
+    
+}
+.footer-content .company-link .links {
+    display: flex;
+    justify-content: space-between;
+    
+    padding-right: 5rem;
+}
+.footer-content .company-link .links ul li {
+    margin-bottom: .9em;
+}
+.footer-content .company-link .links ul li a {
+    color: #cdd1dd;
+    font-size: 1rem;
+    position: relative;
+
+}
+.footer-content .company-link .links ul li a::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: #fad027;
+    border-radius: 1px;
+    transition: all .3s;
+}
+.footer-content .company-link .links ul li a:hover{
+    color: #fad027;
+}
+.footer-content .company-link .links ul li a:hover:after{
+    
+    width: 100%;
+    left: 0;
+}
+.footer-content .info-contact {
+    width: 25%;
+    max-width: 33%;
+}
+.footer-content .info-contact .contact-ad li {
+    margin-bottom: 1.5em;
+    display: flex;
+}
+.footer-content .info-contact .contact-ad li span {
+    color: #cdd1dd;
+    
+}
+.footer-content .info-contact .contact-ad li span a {
+    color: #cdd1dd;
+    transition: all .3s;
+}
+.footer-content .info-contact .contact-ad li span a:hover{
+    color: #fad027;
+}
+.footer-content .info-contact .contact-ad li .type-adr {
+    margin-right: 10px;
+    font-weight: 700;
+    font-size: 1.1em;
+}
+.footer-content .info-contact .social-media {
+    display: flex;
+    justify-content: space-between;
+    max-width: 200px;
+}
+.footer-content .info-contact .social-media  li {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #cdd1dd;
+    border-radius: 50%;
+    position: relative;
+    transition: all .3s;
+}
+.footer-content .info-contact .social-media  li a {
+    color: #cdd1dd;
+    position: absolute;
+    display: inline-block;
+    line-height: 37px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.footer-content .info-contact .social-media  li:hover {
+    background-color: #fad027;
+}
+.footer-content .info-contact .social-media  li:hover a {
+    color: #fff;
+}
+
+.menu-bars {
+    display: none;
+    cursor: pointer;
+    padding-right: 15px;
+}
+.menu-bars i {
+    font-size: 2rem;
+    color: #fff;
+}
+/*---------------------------- 
+---------------RESPONSIVE-------------
+----------------------------------------------- */
+@media  screen and (max-width:1000px) {
+    .header-content .navigation{
+        display: none;
+    }
+    .home .home-background {
+        height: 70vh;
+        min-height: 40vh;
+    }
+    .container {
+        max-width: 700px;
+    }
+    .menu-bars {
+        display: block;
+    }
+    .home .home-content h1 {
+        font-size: 2rem;
+        margin-left: 2rem ;
+        margin-right: 2rem ;
+    }
+    .home .home-content p {
+        width: 100%;
+    }
+    .services .some-services .service{
+        width: 45%;
+    }
+    .about-us .about-us-content {
+        flex-direction: column;
+        
+    }
+    .about-us .about-us-content .about-image {
+        width: 80%;
+    }
+    .about-us .about-us-content .about-title-more {
+        width: 100%;
+    }
+    .subscriber .subscribe-content .form-subscribe form .inputs {
+        flex-direction: column;
+    }
+    .subscriber .subscribe-content .form-subscribe form .inputs .input-label {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .subscribe-content .already-subscriber {
+        width: 40%;
+    }
+    .subscriber .subscribe-content .form-subscribe {
+        padding: 1em  2.5em 2.5em;
+    }
+    .latest-work .latest-work-content .latest-work-title {
+        width: 100%;
+    }
+    .latest-work .latest-work-content .latest-work-title h1 {
+        font-size: 2rem;
+    }
+    .latest-work .latest-work-content .latest-work-slide .latest-work-box {
+        width: 45%;
+        max-width: 315px;
+        box-shadow: 0 5px 5px 0px rgba(0, 11, 40, 0.1);
+    }
+    .services .some-services .service .service-content h3 {
+        line-height: 2.8rem;
+        font-size: 1.4em;
+    }
+    .contact .contact-content h1 {
+        font-size: 2rem;
+    }
+    .arrow {
+        display: none;
+    }
+    .footer-content .copyright-and-logo {
+        max-width: 100%;
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+    .footer-content .company-link,.footer-content .info-contact {
+        width: 50%;
+        max-width: 50%;
+    }
+}
+@media screen and (max-width:800px) {
+    .container{
+        width: 95%;
+        max-width: 95%;
+    }
+}
+@media screen and (max-width:625px) {
+    .container{
+        width: 100%;
+        max-width: 100%;
+    }
+    .services-detail .services-detail-child{
+        flex-direction: column;
+    }
+    .services-detail .services-deatil-content{
+        width: 100%;
+        margin-bottom: 4rem;
+    }
+    .services .services-detail .more-detail-box {
+        width: 80%;
+    }
+    .services .some-services .service {
+        width: 100%;
+    }
+    .services .some-services .service .img-service img {
+        height: 250px;
+    }
+    .subscriber {
+        height: 750px;
+    }
+    .subscriber .subscribe-content {
+        flex-direction: column;
+    }
+    .subscribe-content .already-subscriber {
+        width: 100%;
+        height: 150px;
+        margin-bottom: 3rem;
+    }
+    .subscriber .subscribe-content .form-subscribe {
+        width: 100%;
+        max-width: 100%;
+    }
+    .latest-work .latest-work-content .latest-work-slide .latest-work-box {
+        max-width: 430px;
+    }
+    .latest-work-content .slick-dote {
+        margin-top: 40px;
+    }
+    .team-dev .team-dev-content .dev-profile {
+        width: 100%;
+    }
+    .contact .contact-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .contact .contact-content .contact-pr {
+        max-width: 100%;
+        margin-bottom: 3rem;
+    }
+    .footer-content .company-link, .footer-content .info-contact {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 4rem;
+    }
+    .footer-content .copyright-and-logo {
+        padding-right: 4rem;
+    }
+    .home .home-content p {
+        font-size: 1.1rem;
+    }
 }
