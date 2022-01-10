@@ -27,11 +27,26 @@ header{
     font-family: 'Roboto', sans-serif;
     padding: 1.2em 0;
     position: absolute;
-    top: 0;
+    
     z-index: 9999;
     width: 100%;
+    transition:  .5s ease;
+    
+}
+header.fixedMenu {
+    
     position: fixed;
-    transition: .5s ease;
+    top: 0;
+    background-color: rgb(13, 43, 77);
+    animation: animateheader .5s ease;
+}
+@keyframes animateheader {
+    0% {
+        top: -100px;
+    }
+    100%{
+        top: 0;
+    }
 }
 header .progresse-bar {
    background-color: #fad027;
@@ -124,22 +139,60 @@ header .header-content {
     width: 100%;
     position: relative;
     font-family: 'Roboto', sans-serif;
+    overflow: hidden;
 }
-.home .home-background {
+.home .home-background{
+    position: relative;
+    
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center; */
+    height: 100vh;
+    min-height: 800px;
+    
+    opacity: .5;
+    display: none;
+    
+}
+.home  .home-slide-slick {
+    width: 3500px;
+}
+.home .home-background.slide-1 {
     background-image:url('image/post_img_2.jpg') ;
     background-position: top left;
     background-size: cover;
     background-repeat: no-repeat;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 100vh;
-    min-height: 800px;
+    transition: opacity  6s ease;
 }
-.home .home-background .arrow {
+.home .home-background.slide-2{
+    background-image:url('image/banner_bg1.jpg') ;
+    background-position: top left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+.home .home-background.slide-1.active,
+.home .home-background.slide-2.active {
+    display: block;
+    animation:  op 1s ease;
+    
+    opacity: 1;
+}
+@keyframes op {
+    0%{
+        opacity:.5;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.home .arrow {
     color: #fff;
+    text-align: center;
+}
+.home .arrow i {
+    /* margin-left: 20px; */
 }
 .home .home-background::after{
     content: '';
@@ -162,9 +215,11 @@ header .header-content {
     color: #fff;
     font-size: 4rem;
     margin: 2.5rem 4rem 1.2rem 4rem;
-    animation:fedoutleft  linear .4s  ;
+    animation:fedoutleft  linear .4s .7s forwards  ;
     
-    
+    opacity: 0;
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
 }
 @keyframes fedoutleft {
     0% {
@@ -206,7 +261,9 @@ header .header-content {
     line-height: 1.8em;
     width: 65%;
     margin: 0 auto 1.8rem auto;
-    animation:fedoutright  linear  .4s ;
+    transform: translate3d(50%, 0, 0);
+    animation:fedoutright  linear .4s .7s forwards ;
+    opacity: 0;
 }
 @keyframes fedoutright {
     0% {
