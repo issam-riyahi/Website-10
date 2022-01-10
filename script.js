@@ -7,7 +7,43 @@ const service_detail=document.querySelector('.services-deatil-content');
 const header =document.querySelector('header');
 const progresse_bar=document.querySelector('.progresse-bar');
 console.log(Links);
+const background=document.querySelectorAll('.home-background');
 
+//background fix width 
+const event = setInterval(() => {
+    for(let c of background){
+        if(c.classList.contains('slide-1') && c.classList.contains('active')){
+            console.log(c)
+            c.classList.remove('active');
+            document.querySelector('.slide-2').classList.add('active');
+            break;
+            
+        }
+        else if(c.classList.contains('slide-2') && c.classList.contains('active')){
+            
+            c.classList.remove('active');
+            document.querySelector('.slide-1').classList.add('active');
+        }
+        
+    }
+    console.log(1);
+}, 5000);
+background.forEach(x=>{
+    x.style.width=`${window.innerWidth}px`
+    
+})
+window.addEventListener('resize',()=>{
+
+    background.forEach(x=>{
+        x.style.width=`${window.innerWidth}px`
+    })
+})
+window.addEventListener('load',()=>{
+
+    background.forEach(x=>{
+        x.style.width=`${window.innerWidth}px`
+    })
+})
 
 // window.onload=()=>{
 //     scrollY=0;
@@ -51,11 +87,11 @@ function scrollProgresse(){
 }
 function headerscroll(){
     if(scrollY == 0 ){
-        header.style.backgroundColor='transparent';
+        header.classList.remove('fixedMenu')
         
     }
-    else {
-    header.style.backgroundColor='rgb(13, 43, 77)'
+    else if(scrollY >=200) {
+    header.classList.add('fixedMenu')
     }
 }
 function scrolDisplay(){
