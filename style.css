@@ -172,8 +172,16 @@ header .header-content {
     background-repeat: no-repeat;
     
 }
+.home .home-background.slide-3{
+    background-image:url('image/banner_bg1.jpg') ;
+    background-position: top left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
 .home .home-background.slide-1.active,
-.home .home-background.slide-2.active {
+.home .home-background.slide-2.active, 
+.home .home-background.slide-3.active {
     display: block;
     animation:  op 1s ease;
     
