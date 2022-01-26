@@ -60,6 +60,7 @@ header .header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 .header-content .navigation  {
     display: flex;
@@ -805,10 +806,13 @@ SUBSCRIBER
    position: relative;
 }
 .latest-work .latest-work-content .latest-work-slide .row-slide {
+    position: relative;
     display: flex;
     width: 3000px;
+    transition:  .5s linear;
 } 
 .latest-work .latest-work-content .latest-work-slide .latest-work-box {
+    width: 370px;
     background-color: #fff;
     box-shadow: 0 5px 20px 0px rgba(0, 11, 40, 0.1);
     padding: .8em;
@@ -816,19 +820,19 @@ SUBSCRIBER
     position: relative;
     transition: all .3s;
     max-width: 370px;
-    opacity: 0;
+    
 }
 .latest-work .latest-work-content .latest-work-slide .latest-work-box.animate-bottom.animateActive{
     animation: bottomtotop .5s ease forwards;
-    
+    opacity: 0;
 }
 .latest-work .latest-work-content .latest-work-slide .latest-work-box.animate-left.animateActive{
     animation: lefttorigth .5s ease forwards;
-    
+    opacity: 0;
 }
 .latest-work .latest-work-content .latest-work-slide .latest-work-box.animate-rigth.animateActive{
     animation: rigthtoleft .5s ease forwards;
-    
+    opacity: 0;
 }
 .latest-work .latest-work-content .latest-work-slide .latest-work-box:hover{
     box-shadow: 0 10px 30px 0px rgba(0, 11, 40, 0.2);
@@ -926,14 +930,28 @@ SUBSCRIBER
     position: relative;
 }
 .team-dev .team-dev-content {
+    width: 100%;
     padding: 0 15px;
     text-align: center;
     position: relative;
     transform: scale(0);
+    overflow: hidden;
+}
+.team-dev .team-dev-content .team-dev-slide{
+    display: flex;
+    /* transform: translate3d(-1140px , 0 ,0) */
 }
 .team-dev .team-dev-content.animateActive{
     animation: scale .5s ease ;
     transform: scale(1);
+}
+.team-dev .team-dev-content .team-dev-content-child{
+    width: 1140px;
+    min-width: 1140px;
+    /* transform: translate3d(1140px , 0 ,0); */
+}
+.team-dev .team-dev-content .team-dev-content-child.first {
+    
 }
 .team-dev .team-dev-content .dev-profile{
     width: 30%;
@@ -1274,6 +1292,38 @@ footer .footer-content h3 {
 ----------------------------------------------- */
 @media  screen and (max-width:1000px) {
     .header-content .navigation{
+        width: 100%;
+        /* height: 500px; */
+        position: absolute;
+        background-color:#fff;
+        top: 75px;
+        color: white;
+        flex-direction: column;
+        padding: 20px;
+        text-align: left;
+        transition: .3s linear;
+        
+    }
+    .header-content .navigation.active{
+        transform:translateX(450px);
+    }
+    .header-content .navigation .nav {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .header-content .navigation .nav ul {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        
+    }
+    .header-content .navigation .nav ul li a {
+        color: #333;
+        margin-bottom: 20px;
+        display: block;
+    }
+    .header-content .navigation  .call-us {
         display: none;
     }
     .home .home-background {
@@ -1396,7 +1446,7 @@ footer .footer-content h3 {
         max-width: 100%;
     }
     .latest-work .latest-work-content .latest-work-slide .latest-work-box {
-        max-width: 430px;
+        max-width: 380px;
     }
     .latest-work-content .slick-dote {
         margin-top: 40px;
@@ -1422,5 +1472,13 @@ footer .footer-content h3 {
     }
     .home .home-content p {
         font-size: 1.1rem;
+    }
+    .team-dev .team-dev-content .team-dev-content-child {
+        width: 370px;
+        min-width: 370px;
+        margin:  0 20px;
+    }
+    .team-dev .team-dev-content .team-dev-content-child .pr p {
+        font-size: 1rem;
     }
 }
