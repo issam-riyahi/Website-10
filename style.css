@@ -1305,7 +1305,7 @@ footer .footer-content h3 {
         
     }
     .header-content .navigation.active{
-        transform:translateX(450px);
+        transform:translateX(800px);
     }
     .header-content .navigation .nav {
         width: 100%;

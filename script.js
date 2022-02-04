@@ -54,9 +54,19 @@ window.addEventListener('load',()=>{
     })
 })
 
-// window.onload=()=>{
-//     scrollY=0;
-// }
+function GetCurrentIndex(){
+
+    for(let i=0 ; i< background.length ; i++){
+        if(background[i].classList.contains('active')){
+            
+           
+           return i;
+        } 
+
+    }
+    
+}
+
 
 for(const link of Links){
     link.addEventListener('click',smoothScroll);
@@ -221,18 +231,6 @@ RightSlideBtn.addEventListener('click',()=>{
 
 
 
-function GetCurrentIndex(){
-
-    for(let i=0 ; i< background.length ; i++){
-        if(background[i].classList.contains('active')){
-            
-           
-           return i;
-        } 
-
-    }
-    
-}
 
 
 
@@ -299,18 +297,21 @@ slickDote.forEach(x => {
             slidebById();
             // rowSlide.style.marginLeft = `${-(boxWidth + boxMargine) * 3}px`;
             // e.target.classList.add('active');
+
         }
 
-        setTimeout(()=>{
-            slideInterval = setInterval(
-                slidebById
-            ,5000)
-        },2000)
+        addInterval();
 
     });
 });
 
-
+function addInterval(){
+    
+        slideInterval = setInterval(
+            slidebById
+        ,5000);
+   
+}
 
 //function remove class Active from collection 
 
@@ -370,6 +371,16 @@ var counterBox = 0;
 // console.log(widthTeamdevSlide)
 
 teamDevSlide.style.width =`${widthTeamdevSlide + widthBoxTeam}px` ;
+
+
+window.addEventListener('resize',()=>{
+    marginBoxleft = parseInt(getComputedStyle(teamDevContentChild[0]).marginLeft);
+    marginBoxRigth = parseInt(getComputedStyle(teamDevContentChild[0]).marginRight) ;
+    marginTeamdevBox = marginBoxRigth + marginBoxleft ;
+    widthBoxTeam = teamDevContentChild[0].offsetWidth + marginTeamdevBox;
+    teamDevSlide.style.width =`${widthTeamdevSlide + widthBoxTeam}px` ;
+})
+
 //Interval slide Team dev 
 
 let intervalTeamdev = setInterval(() => {
@@ -393,7 +404,7 @@ function teamDevSlideF(size){
     else{
         counterBox = 0 ;
         
-        teamDevSlide.style.transition = "";
+        // teamDevSlide.style.transition = "";
 
         teamDevSlide.style.transform = `translate3D(${-widthBoxTeam * counterBox}px, 0 ,0`;
     }
